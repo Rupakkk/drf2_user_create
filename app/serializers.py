@@ -1,5 +1,3 @@
-from ast import Not
-from dataclasses import field
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
@@ -9,8 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id','username','email','first_name','last_name','password']
         extra_kwargs = {
-            'pas sword': {'write_only': True},
-            'username': {'label':'hello'}
+            'password': {'write_only': True},
         }
         
     def create(self, validated_data):
